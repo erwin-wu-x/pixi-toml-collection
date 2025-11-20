@@ -1,0 +1,41 @@
+[project]
+name = "python-ml"
+version = "0.1.0"
+description = "Python machine learning environment"
+channels = ["conda-forge", "pytorch"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.11"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+scikit-learn = "*"
+jupyter = "*"
+
+# Choose your ML framework - uncomment the one you need:
+# PyTorch (default)
+pytorch = "*"
+torchvision = "*"
+# TensorFlow
+# tensorflow = "*"
+
+[tasks]
+notebook = "jupyter notebook"
+lab = "jupyter lab"
+train = "python train.py"
+
+[feature.dev.dependencies]
+pytest = "*"
+black = "*"
+ruff = "*"
+tensorboard = "*"
+
+[feature.dev.tasks]
+test = "pytest"
+format = "black ."
+lint = "ruff check ."
+tensorboard = "tensorboard --logdir=runs"
+
+[environments]
+default = ["dev"]

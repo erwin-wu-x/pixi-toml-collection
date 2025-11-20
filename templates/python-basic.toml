@@ -1,0 +1,30 @@
+[project]
+name = "python-basic"
+version = "0.1.0"
+description = "Basic Python development environment"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.11"
+pip = "*"
+
+[tasks]
+# Example tasks - customize as needed
+hello = "python -c 'print(\"Hello from Pixi!\")'"
+
+[feature.dev.dependencies]
+# Development dependencies
+pytest = "*"
+black = "*"
+ruff = "*"
+mypy = "*"
+
+[feature.dev.tasks]
+test = "pytest"
+format = "black ."
+lint = "ruff check ."
+typecheck = "mypy ."
+
+[environments]
+default = ["dev"]

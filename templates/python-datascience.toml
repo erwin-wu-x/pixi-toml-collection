@@ -1,0 +1,35 @@
+[project]
+name = "python-datascience"
+version = "0.1.0"
+description = "Python data science environment with numpy, pandas, and visualization"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.11"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+seaborn = "*"
+scipy = "*"
+scikit-learn = "*"
+jupyter = "*"
+ipython = "*"
+
+[tasks]
+notebook = "jupyter notebook"
+lab = "jupyter lab"
+
+[feature.dev.dependencies]
+pytest = "*"
+black = "*"
+ruff = "*"
+ipdb = "*"
+
+[feature.dev.tasks]
+test = "pytest"
+format = "black ."
+lint = "ruff check ."
+
+[environments]
+default = ["dev"]

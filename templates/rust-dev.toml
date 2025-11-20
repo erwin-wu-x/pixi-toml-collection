@@ -1,0 +1,27 @@
+[project]
+name = "rust-dev"
+version = "0.1.0"
+description = "Rust development environment"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+rust = "*"
+cargo = "*"
+rustfmt = "*"
+clippy = "*"
+
+[tasks]
+build = "cargo build"
+run = "cargo run"
+test = "cargo test"
+check = "cargo check"
+fmt = "cargo fmt"
+lint = "cargo clippy"
+clean = "cargo clean"
+
+[feature.dev.dependencies]
+rust-analyzer = "*"
+
+[environments]
+default = ["dev"]
