@@ -1,0 +1,49 @@
+[workspace]
+channels = ["nvidia/label/cuda-12.4.0", "nvidia", "conda-forge", "pytorch"]
+name = "S3PO-GS"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+curope-install = "cd croco/models/curope/ && python setup.py build_ext --inplace"
+proxy-install = "proxychains pip install open3d pyglm glfw evo==1.11.0 roma"
+
+[dependencies]
+cuda = {version = "*", channel="nvidia/label/cuda-12.4.0"}
+pytorch = {version = "2.4.0.*", channel="pytorch"}
+torchvision = {version = "0.19.0.*", channel="pytorch"}
+torchaudio = {version = "2.4.0.*", channel="pytorch"}
+pytorch-cuda = {version = "12.4.*", channel="pytorch"}
+python = "3.8.*"
+setuptools = "*"
+gxx = "12.2.0.*"
+ninja = "*"
+plyfile = ">=1.1,<2"
+opencv = ">=4.10.0,<5"
+tqdm = ">=4.67.1,<5"
+matplotlib = ">=3.7.3,<4"
+pyproj = ">=2.6.0,<3"
+rerun-sdk = ">=0.18.0,<0.19"
+shapely = ">=2.0.6,<3"
+scipy = ">=1.10.1,<2"
+numba = ">=0.58.1,<0.59"
+pandas = ">=2.0.3,<3"
+munch = ">=4.0.0,<5"
+wandb = ">=0.16.6,<0.17"
+pip = ">=24.3.1,<25"
+imgviz = ">=1.7.5,<2"
+pyopengl = ">=3.1.6,<4"
+rich = ">=13.9.4,<14"
+trimesh = ">=4.5.3,<5"
+torchmetrics = ">=1.5.2,<2"
+einops = ">=0.8.0,<0.9"
+huggingface_hub = "==0.24.2"
+safetensors = ">=0.4.4,<0.5"
+
+[pypi-options]
+no-build-isolation = ["diff-gaussian-rasterization", "simple-knn"]
+
+
+[pypi-dependencies]
+diff-gaussian-rasterization = {path = "submodules/diff-gaussian-rasterization"}
+simple-knn = {path = "submodules/simple-knn"}

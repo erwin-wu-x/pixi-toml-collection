@@ -1,0 +1,13 @@
+[workspace]
+authors = ["erwin wu <wsxerwin@gmail.com>"]
+channels = ["conda-forge"]
+name = "image-matching-webui"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+imcui-install = "proxychains4 pip install imcui"
+
+[dependencies]
+python = "3.10.10.*"
+pip = ">=25.1.1,<26"

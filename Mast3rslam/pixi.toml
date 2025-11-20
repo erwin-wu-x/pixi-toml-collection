@@ -1,0 +1,27 @@
+[project]
+channels = ["nvidia/label/cuda-11.8.0", "nvidia", "conda-forge", "pytorch",]
+name = "MASt3R-SLAM"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+mast3r-install = "proxychains4 pip install -e thirdparty/mast3r"
+in3d-install = "proxychains4 pip install -e thirdparty/in3d" 
+mast3r-slam-install = "proxychains4 pip install --no-build-isolation -e ."
+mast3r-slam-install-nodeps = "proxychains4 pip install --no-build-isolation --no-deps -e ."
+
+[dependencies]
+cuda = {version = "*", channel="nvidia/label/cuda-11.8.0"}
+pytorch = {version = "2.5.1.*", channel="pytorch"}
+torchvision = {version = "0.20.1.*", channel="pytorch"}
+torchaudio = {version = "2.5.1.*", channel="pytorch"}
+pytorch-cuda = {version = "11.8.*", channel="pytorch"}
+setuptools = ">=75.8.2,<76"
+pip = ">=25.0.1,<26"
+pyrealsense2 = ">=2.54.2,<3"
+libgl-devel = ">=1.7.0,<2"
+compilers = "<1.6"
+
+[pypi-dependencies]
+torchcodec = "==0.1"
+glfw = ">=2.10.0, <3"
