@@ -44,7 +44,7 @@ pytorch-msssim = ">=1.0.0,<2"
 no-build-isolation = ["diff-gaussian-rasterization", "simple-knn"]
 
 [pypi-dependencies]
-diff-gaussian-rasterization = {path = "submodules/diff-gaussian-rasterization-depth"}
+diff-gaussian-rasterization = {path = "submodules/diff-gaussian-rasterization"}
 simple-knn = {path = "submodules/simple-knn"}
 prefetch_generator = "*"
 pytorch-lightning = "~=1.9.5"
