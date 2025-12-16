@@ -1,0 +1,19 @@
+[project]
+channels = ["nvidia/label/cuda-12.4.0", "nvidia", "conda-forge", "pytorch"]
+name = "langsam"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+# || operator in pixi allows running a command after only if the command before || fails
+sam-install = "python -c 'from lang_sam import LangSAM' || proxychains4 python -m pip install -U git+https://github.com/luca-medeiros/lang-segment-anything.git"
+
+[dependencies]
+cuda = {version = "*", channel="nvidia/label/cuda-12.4.0"}
+pytorch = {version = "2.4.1.*", channel="pytorch"}
+torchvision = {version = "0.19.1.*", channel="pytorch"}
+torchaudio = {version = "2.4.1.*", channel="pytorch"}
+pytorch-cuda = {version = "12.4.*", channel="pytorch"}
+python = "3.11.*"
+pip = ">=25.0.1,<26"
+tqdm = ">=4.67.1,<5"
