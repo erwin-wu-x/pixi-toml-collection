@@ -1,0 +1,18 @@
+[project]
+channels = ["conda-forge", "https://prefix.dev/zicklag-forge"]
+name = "stella"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+stella-vslam = ">=0.5.0,<0.6"
+stella-vslam-examples = ">=0.0.1,<0.0.2"
+stella-vslam-pangolin-viewer = ">=0.0.1,<0.0.2"
+polyscope = ">=2.3.0,<3"
+transforms3d = ">=0.4.2,<0.5"
+pyqt = ">=5.15.9,<6" # evo_config set plot_backend Qt5Agg
+
+[pypi-dependencies]
+evo = "*"
